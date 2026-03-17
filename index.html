@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escandinávia 2026 — Roteiro Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1714;
+    --ink-soft: #3D3830;
+    --ink-muted: #7A7368;
+    --accent: #2B4A6F;
+    --accent-light: #4A7DAF;
+    --gold: #C8A96E;
+    --gold-light: #E8D5A8;
+    --border: #D8CFC0;
+    --surface: #FDFAF5;
+    --nl: #E86230;
+    --be: #C8A800;
+    --dk: #C0152C;
+    --no: #003087;
+    --se: #006AA7;
+    --es: #C60B1E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 40px;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(43,74,111,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(200,169,110,0.2) 0%, transparent 50%);
+  }
+
+  .cover-map {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23ffffff'/%3E%3Ccircle cx='0' cy='0' r='0.5' fill='%23ffffff'/%3E%3Ccircle cx='60' cy='0' r='0.5' fill='%23ffffff'/%3E%3Ccircle cx='0' cy='60' r='0.5' fill='%23ffffff'/%3E%3Ccircle cx='60' cy='60' r='0.5' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  .cover-content { position: relative; z-index: 1; text-align: center; max-width: 700px; }
+
+  .cover-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 400;
+    color: #FDFAF5;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .cover-title em {
+    display: block;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cover-year {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    color: rgba(253,250,245,0.35);
+    letter-spacing: 0.1em;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .cover-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .cover-meta-item {
+    text-align: center;
+  }
+
+  .cover-meta-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(253,250,245,0.45);
+  }
+
+  .cover-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(200,169,110,0.3);
+  }
+
+  .cover-route {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .route-city {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(253,250,245,0.55);
+  }
+
+  .route-arrow {
+    color: var(--gold);
+    opacity: 0.6;
+    font-size: 10px;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245,240,232,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 14px 0;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-btn:hover { background: rgba(43,74,111,0.08); color: var(--accent); }
+  .nav-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* ── MAIN LAYOUT ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 64px 32px; }
+
+  /* ── SECTION HEADER ── */
+  .city-section { margin-bottom: 80px; scroll-margin-top: 70px; }
+
+  .city-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .city-flag-large {
+    font-size: 48px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .city-header-text { flex: 1; }
+
+  .city-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+
+  .city-name-large {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .city-dates {
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .city-color-bar {
+    width: 3px;
+    height: 60px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  /* ── DAY CARD ── */
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .day-card:hover { box-shadow: 0 8px 32px rgba(26,23,20,0.06); }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 28px;
+    background: var(--ink);
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .day-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .day-title {
+    font-weight: 500;
+    font-size: 15px;
+    color: #FDFAF5;
+    flex: 1;
+  }
+
+  .day-subtitle {
+    font-size: 12px;
+    color: rgba(253,250,245,0.45);
+  }
+
+  .day-chevron {
+    color: rgba(200,169,110,0.5);
+    transition: transform 0.3s;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .day-card.open .day-chevron { transform: rotate(180deg); }
+
+  .day-body {
+    display: none;
+    padding: 0 28px 24px;
+  }
+
+  .day-card.open .day-body { display: block; }
+
+  /* ── TIMELINE ── */
+  .timeline { margin-top: 24px; }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 64px 1px 1fr;
+    gap: 0 16px;
+    margin-bottom: 0;
+  }
+
+  .tl-time {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-align: right;
+    padding-top: 2px;
+    padding-bottom: 24px;
+  }
+
+  .tl-line-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tl-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--border);
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: background 0.2s;
+  }
+
+  .tl-item:hover .tl-dot { background: var(--accent); }
+
+  .tl-line {
+    flex: 1;
+    width: 1px;
+    background: var(--border);
+    margin-top: 4px;
+  }
+
+  .tl-item:last-child .tl-line { display: none; }
+
+  .tl-content { padding-bottom: 24px; }
+
+  .tl-activity {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .tl-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ── TRANSPORT BADGE ── */
+  .transport-strip {
+    margin: 6px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .transport-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .tb-metro { background: #E3EBF5; color: #1A4A7A; }
+  .tb-uber { background: #E8F0E8; color: #1A5C1A; }
+  .tb-walk { background: #F5EEE0; color: #7A5A20; }
+  .tb-tram { background: #EDE8F5; color: #4A2A8A; }
+  .tb-train { background: #E8E0F0; color: #3A1A7A; }
+  .tb-boat { background: #E0EDF5; color: #0A4A6A; }
+  .tb-bus { background: #EDF5E0; color: #2A5A10; }
+  .tb-funicular { background: #F5E8E0; color: #7A3A10; }
+  .tb-bike { background: #EEF5E0; color: #3A5A10; }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+    margin-top: 4px;
+  }
+
+  .tag-alert { background: #FEF3E0; color: #9A5A00; border: 1px solid #F5D090; }
+  .tag-food { background: #F0EEF8; color: #4A2A7A; border: 1px solid #D8CEF0; }
+  .tag-tip { background: #E8F5E8; color: #1A5A1A; border: 1px solid #B8DAB8; }
+
+  /* ── FOOD SECTION ── */
+  .food-block {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: rgba(200,169,110,0.07);
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .food-block-title {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .food-item {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .food-item strong { font-weight: 500; color: var(--ink); }
+
+  /* ── LOGISTICS ALERT ── */
+  .logistics-block {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(43,74,111,0.05);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-light);
+  }
+
+  .logistics-block-title {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .logistics-block p {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ── BOOKING ALERTS ── */
+  .alerts-section {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 80px;
+  }
+
+  .alerts-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #FDFAF5;
+    margin-bottom: 6px;
+  }
+
+  .alerts-sub {
+    font-size: 13px;
+    color: rgba(253,250,245,0.45);
+    margin-bottom: 32px;
+  }
+
+  .alerts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .alert-card {
+    background: rgba(253,250,245,0.05);
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .alert-card-city {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .alert-card-item {
+    font-size: 13px;
+    font-weight: 500;
+    color: #FDFAF5;
+    margin-bottom: 4px;
+  }
+
+  .alert-urgency {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .urg-alta { background: rgba(198,11,30,0.25); color: #FF8A8A; }
+  .urg-media { background: rgba(200,168,0,0.2); color: #E8C840; }
+  .urg-baixa { background: rgba(43,74,111,0.3); color: #8AB0D8; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 48px 32px;
+    border-top: 1px solid var(--border);
+    color: var(--ink-muted);
+    font-size: 12px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .city-section { opacity: 0; animation: fadeUp 0.6s forwards; }
+
+  /* ── PRINT ── */
+  @media print {
+    .nav, .cover { display: none; }
+    .day-body { display: block !important; }
+    .day-header { background: var(--ink) !important; }
+    .city-section { page-break-inside: avoid; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .main { padding: 40px 16px; }
+    .city-header { flex-direction: column; gap: 12px; }
+    .day-header { padding: 16px 20px; }
+    .day-body { padding: 0 20px 20px; }
+    .alerts-section { padding: 28px 20px; }
+    .cover-meta { gap: 16px; }
+  }
+
+  /* ── ATTRACTION IMAGES ── */
+  .tl-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
+    background: var(--border);
+  }
+  .tl-img-placeholder {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--border) 0%, var(--gold-light) 100%);
+    color: var(--ink-muted);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  .city-hero {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 32px;
+    display: block;
+  }
+  .city-hero-placeholder {
+    width: 100%;
+    height: 200px;
+    border-radius: 14px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<section class="cover">
+  <div class="cover-map"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Roteiro de viagem · Edição exclusiva</div>
+    <div class="cover-title">Escandinávia<em>&amp; Benelux</em></div>
+    <div class="cover-year">2026</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-num">15</div>
+        <div class="cover-meta-label">Dias</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-num">7</div>
+        <div class="cover-meta-label">Cidades</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-num">5</div>
+        <div class="cover-meta-label">Países</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-num">30/05</div>
+        <div class="cover-meta-label">Partida</div>
+      </div>
+    </div>
+    <div class="cover-route">
+      <span class="route-city">🇳🇱 Amsterdam</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇧🇪 Bruxelas</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇩🇰 Copenhague</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇳🇴 Oslo</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇳🇴 Fiordes</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇳🇴 Bergen</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇸🇪 Estocolmo</span>
+      <span class="route-arrow">›</span>
+      <span class="route-city">🇪🇸 Madrid</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollTo('amsterdam')">🇳🇱 Amsterdam</button>
+    <button class="nav-btn" onclick="scrollTo('bruxelas')">🇧🇪 Bruxelas</button>
+    <button class="nav-btn" onclick="scrollTo('copenhague')">🇩🇰 Copenhague</button>
+    <button class="nav-btn" onclick="scrollTo('oslo')">🇳🇴 Oslo</button>
+    <button class="nav-btn" onclick="scrollTo('fiordes')">🇳🇴 Fiordes</button>
+    <button class="nav-btn" onclick="scrollTo('bergen')">🇳🇴 Bergen</button>
+    <button class="nav-btn" onclick="scrollTo('estocolmo')">🇸🇪 Estocolmo</button>
+    <button class="nav-btn" onclick="scrollTo('madrid')">🇪🇸 Madrid</button>
+    <button class="nav-btn" onclick="scrollTo('reservas')">📋 Reservas</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════════ AMSTERDAM ══════════════════════════════ -->
+<section class="city-section" id="amsterdam">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/AmsterdamCollage.jpg/1280px-AmsterdamCollage.jpg" alt="Amsterdam" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--nl)"></div>
+    <div class="city-flag-large">🇳🇱</div>
+    <div class="city-header-text">
+      <div class="city-label">Países Baixos · 30 mai — 02 jun</div>
+      <div class="city-name-large">Amsterdam</div>
+      <div class="city-dates">
+        <span>3 noites</span>
+        <span>·</span>
+        <span>Holiday Inn Express — Sloterdijk</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 0 -->
+  <div class="day-card open" id="day-30">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 0</div>
+      <div class="day-title">Chegada em Amsterdam</div>
+      <div class="day-subtitle">30 de maio · Sábado</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">17h35</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Pouso em Amsterdam Schiphol</div>
+            <div class="tl-note">Comprar passe de metro diário no aeroporto — custa ±€9/dia. Vale muito mais que pagar individual.</div>
+            <div class="transport-strip">
+              <span class="transport-badge tb-metro">🚇 Metro linha 52 → Sloterdijk</span>
+              <span class="transport-badge tb-uber">🚗 Uber ~€35 (alternativa)</span>
+            </div>
+            <div class="tag tag-tip">✓ Metro: 22 min direto, mais barato e sem trânsito</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Check-in — Holiday Inn Express Sloterdijk</div>
+            <div class="tl-note">Hotel reservado no Booking. Pagar no local. Estação Amsterdam Sloterdijk a 3 min a pé.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Red Light District + Jantar</div>
+            <div class="tl-note">Opcional — se estiver cansado, pule sem culpa. O RLD fica ainda melhor no Dia 1 quando você estiver descansado.</div>
+            <div class="transport-strip">
+              <span class="transport-badge tb-metro">🚇 Metro → Centraal (12 min)</span>
+              <span class="transport-badge tb-walk">🚶 15 min a pé do centro</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">23h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Dormir</div>
+          </div>
+        </div>
+      </div>
+      <div class="food-block">
+        <div class="food-block-title">🍽 Jantar (se for)</div>
+        <div class="food-item"><strong>Café de Jaren</strong> — À beira d'água, comida holandesa, preço honesto. Nieuwezijds Voorburgwal.</div>
+        <div class="food-item"><strong>Rua Warmoesstraat</strong> — Frituras rápidas se quiser algo informal.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 1 -->
+  <div class="day-card" id="day-31">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 1</div>
+      <div class="day-title">Amsterdam Clássica</div>
+      <div class="day-subtitle">31 de maio · Domingo</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento do dia</div>
+        <p>Todo o dia segue um arco geográfico coerente: <strong>Centraal → Praça Dam → Nieuwendijk (a pé, 3 min) → Singel (a pé, 5 min) → Casa de Anne Frank (a pé, 12 min) → Jordaan (a pé, 3 min) → Kalverstraat (a pé, 10 min) → Red Light District (a pé, 8 min).</strong> Sem retrocessos. Tudo cabe em menos de 3 km total a pé.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Metro até Centraal Station</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Linha 52 → Centraal, 12 min</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Praça Dam + Palácio Real</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dam_Square_Amsterdam.jpg/1280px-Dam_Square_Amsterdam.jpg" alt="Dam Square Amsterdam" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Fachada impressionante, entrada opcional (€14). Bom para foto — domingo pela manhã tem movimento mas não lotado.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 8 min a pé da Centraal</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10h45</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Batata Frita — Manneken Pis (Nieuwendijk)</div>
+            <div class="tl-note">A melhor fritura belga de Amsterdam. Coma enquanto caminha.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 3 min da Praça Dam</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h10</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Canal Singel → Caminhada pelo Jordaan</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Egelantiersgracht%2C_Amsterdam.jpg/1280px-Egelantiersgracht%2C_Amsterdam.jpg" alt="Jordaan Amsterdam" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Rota: Nieuwendijk → Singel → Canal Leidsegracht. O Jordaan é o bairro mais fotogênico — flores, pontes, casas inclinadas.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do Nieuwendijk</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Casa de Anne Frank</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Anne_Frank_Haus_Amsterdam.jpg/800px-Anne_Frank_Haus_Amsterdam.jpg" alt="Casa de Anne Frank" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Duração ~90 min. Experiência emocionante e importante.</div>
+            <div class="tag tag-alert">⚠ Comprar ingresso 2 meses antes — esgota sempre</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 12 min do Singel</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço no Jordaan</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 3 min da Anne Frank</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h45</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Rua Kalverstraat + Van Wonderen Stroopwafels</div>
+            <div class="tl-note">Kalverstraat 198. A maior rua pedestre de Amsterdam. Stroopwafels quentinhos — comer na hora.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min do Jordaan</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Red Light District (de dia)</div>
+            <div class="tl-note">Muito diferente da noite — arquitetura medieval, canais bonitos, menos caótico.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 8 min da Kalverstraat</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — In de Waag</div>
+            <div class="tl-note">Restaurante dentro de um castelo medieval do séc. XV na praça Nieuwmarkt. Preço médio-alto, mas a experiência é única.</div>
+          </div>
+        </div>
+      </div>
+      <div class="food-block">
+        <div class="food-block-title">🍽 Almoço no Jordaan</div>
+        <div class="food-item"><strong>Winkel 43</strong> — Famoso pela appeltaart (torta de maçã) com chantilly. Pede uma e um café.</div>
+        <div class="food-item"><strong>Café Toussaint</strong> — Ambiente local, sanduíches e sopas, sem fila de turistas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 2 -->
+  <div class="day-card" id="day-01jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 2</div>
+      <div class="day-title">Canais · Vondelpark · Heineken</div>
+      <div class="day-subtitle">01 de junho · Segunda-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento do dia</div>
+        <p>Arco sul da cidade: <strong>Passeio de barco (Centraal) → Vondelpark (metro/tram, 20 min) → Museumplein (a pé, 5 min) → Albert Cuyp Markt (a pé, 10 min) → Heineken Experience (a pé, 5 min).</strong> Concentrado no anel sul — sem volta ao norte. Total ~4 km a pé.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Passeio de barco pelos canais</div>
+            <img class="tl-img" src="https://www.amsterdamcanals.com/wp-content/uploads/2019/09/canal-cruises-amsterdam-orange-boats.jpg" alt="Canal boat Amsterdam" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Saída perto da Centraal. ~75 min. Melhor visão da cidade. Reserve online com antecedência.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro → Centraal</span><span class="transport-badge tb-boat">⛵ Saída da Centraal</span></div>
+            <div class="tag tag-alert">⚠ Reservar online — Flagship Amsterdam</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Vondelpark de bicicleta</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Vondelpark_in_Amsterdam_-_July_2017.jpg/1280px-Vondelpark_in_Amsterdam_-_July_2017.jpg" alt="Vondelpark" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Aluguel na entrada ~€15/hora. O parque tem 47 ha — um loop completo de bicicleta leva ~45 min.</div>
+            <div class="transport-strip"><span class="transport-badge tb-tram">🚋 Tram 2 ou 11 → Leidseplein (15 min)</span><span class="transport-badge tb-bike">🚲 Bike no parque</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h15</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Museumplein — Fachada do Rijksmuseum</div>
+            <div class="tl-note">Boa foto com o letreiro "I amsterdam". Sem precisar entrar.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do Vondelpark</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Albert Cuyp Markt — Almoço</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Albert_Cuyp_Market_Amsterdam.jpg/1280px-Albert_Cuyp_Market_Amsterdam.jpg" alt="Albert Cuyp Market" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Maior mercado de rua de Amsterdam. Herring fresco, stroopwafels quentinhos, kaas (queijo). Comer ambulante é o jeito certo.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min do Museumplein</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Heineken Experience</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Heineken_Experience_Amsterdam.jpg/1280px-Heineken_Experience_Amsterdam.jpg" alt="Heineken Experience" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">~2 horas. Inclui 2 cervejas no final. Reserve online ~€21.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do Albert Cuyp</span></div>
+            <div class="tag tag-alert">⚠ Reservar horário online com antecedência</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar no bairro De Pijp</div>
+            <div class="tl-note">O bairro mais animado de Amsterdam à noite — ao redor da Heineken.</div>
+          </div>
+        </div>
+      </div>
+      <div class="food-block">
+        <div class="food-block-title">🍽 Jantar em De Pijp</div>
+        <div class="food-item"><strong>Bakers & Roasters</strong> — Brunch e hambúrguer tardio, australiano, muito bom.</div>
+        <div class="food-item"><strong>Café Brecht</strong> — Atmosfera local, cerveja artesanal, ambiente descontraído.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ BRUXELAS ══════════════════════════════ -->
+<section class="city-section" id="bruxelas">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grand_Place_Brussels.jpg/1280px-Grand_Place_Brussels.jpg" alt="Bruxelas" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--be)"></div>
+    <div class="city-flag-large">🇧🇪</div>
+    <div class="city-header-text">
+      <div class="city-label">Bélgica · 02 de junho — Day Trip</div>
+      <div class="city-name-large">Bruxelas</div>
+      <div class="city-dates">
+        <span>1 dia (excursão de Amsterdam)</span>
+        <span>·</span>
+        <span>Volta no mesmo dia</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-02jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Day Trip</div>
+      <div class="day-title">Bruxelas Completa</div>
+      <div class="day-subtitle">02 de junho · Terça-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento</div>
+        <p><strong>Atomium → centro:</strong> Metro linha 6 até Simonis + linha 1 até De Brouckère (25 min total, €2,10). <strong>No centro:</strong> Grand-Place → Manneken Pis (3 min a pé) → Ballekes (2 min a pé) → Galeries Saint-Hubert (5 min a pé) → Maison Dandoy (2 min a pé). Tudo a pé — o centro histórico tem raio de 600 m.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09h03</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Trem Amsterdam Zuid → Bruxelas Midi</div>
+            <div class="tl-note">Mais barato que a Centraal. Duração ~2h. Chegada ~11h.</div>
+            <div class="transport-strip"><span class="transport-badge tb-train">🚄 Thalys/Eurostar ~2h</span></div>
+            <div class="tag tag-tip">✓ Amsterdam Zuid economiza ~€15–20 no bilhete</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Atomium</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Atomium_Brussels_2007.jpg/800px-Atomium_Brussels_2007.jpg" alt="Atomium Bruxelas" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Visual impressionante por fora. Entrada ~€17 — vale se quiser ver as esferas por dentro.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro: Bruxelles Midi → Atomium (25 min)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Metro → Grand-Place</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro → De Brouckère (25 min)</span><span class="transport-badge tb-walk">🚶 5 min a pé à Grand-Place</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Grand-Place</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Grand_Place_Brussels_Belgium.jpg/1280px-Grand_Place_Brussels_Belgium.jpg" alt="Grand Place Bruxelas" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Uma das praças mais bonitas da Europa. 15–20 minutos de fotos.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 No centro histórico</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço — Ballekes</div>
+            <div class="tl-note">Almôndegas belgas (stoofvlees + frieten), autêntico e muito bom. Rua de Flandre.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 3 min da Grand-Place</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Manneken Pis → Frituur Tabora → Galeries Saint-Hubert → Maison Dandoy</div>
+            <div class="tl-note">Tudo num raio de 400m. Frituur Tabora: as melhores batatas fritas belgas. Dandoy: waffle tradicional com açúcar de perola. Galeries: chocolates Godiva + arquitetura art nouveau belíssima.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 Tudo a pé — 400 m de raio</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16h15</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Passeio livre — Bairro Sablon (opcional)</div>
+            <div class="tl-note">Se sobrar energia: antiquários, chocolaterias finas, ambiente chique.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 15 min a pé da Grand-Place</span></div>
+            <div class="tag tag-tip">✓ Delirium Café (perto da Grand-Place): 2000+ cervejas. Parada rápida antes do trem.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17h57</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Trem Bruxelles Midi → Amsterdam</div>
+            <div class="tl-note">Chegar à estação 30 min antes. ~2h de viagem.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro → Bruxelles Midi (15 min antes)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ COPENHAGUE ══════════════════════════════ -->
+<section class="city-section" id="copenhague">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Copenhagen_collage.jpg/1280px-Copenhagen_collage.jpg" alt="Copenhague" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--dk)"></div>
+    <div class="city-flag-large">🇩🇰</div>
+    <div class="city-header-text">
+      <div class="city-label">Dinamarca · 03 — 04 de junho</div>
+      <div class="city-name-large">Copenhague</div>
+      <div class="city-dates">
+        <span>2 dias</span>
+        <span>·</span>
+        <span>Radisson Blu — R$ 1.724</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-03jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 5</div>
+      <div class="day-title">Chegada + Strøget + Nyhavn</div>
+      <div class="day-subtitle">03 de junho · Quarta-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento</div>
+        <p><strong>Aeroporto → Hotel:</strong> Metro M2 direto até Kongens Nytorv (15 min, DKK 36 ≈ €5). Não use táxi — caro e mais lento. <strong>À tarde:</strong> Strøget começa na Rådhuspladsen e vai até Kongens Nytorv onde fica o hotel — rota linear perfeita para chegar ao check-in. <strong>Nyhavn:</strong> 5 min a pé do hotel.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">07h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Checkout Amsterdam + transfer ao aeroporto</div>
+            <div class="tl-note">Chegar ao aeroporto às 07h30. Voo às 09h30.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro → Schiphol (22 min)</span><span class="transport-badge tb-uber">🚗 Uber ~€30 (se com bagagem pesada)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Pouso CPH + deixar malas no Radisson Blu</div>
+            <div class="tl-note">Check-in formal às 14h, mas guardam a bagagem.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro M2 → Kongens Nytorv (15 min)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Strøget → Loja do Lego → Rådhuspladsen</div>
+            <div class="tl-note">Percurso de 1,1km — a maior rua pedestre da Escandinávia. Loja do Lego: Vimmelskaftet 37. Rådhuspladsen: praça central com a Câmara Municipal.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 Rota linear, sem desvios</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Check-in no hotel</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Nyhavn — golden hour</div>
+            <div class="tl-img-placeholder">📍 Nyhavn · Copenhague</div>
+            <div class="tl-note">Em junho a luz dourada é às 19–20h — chegue às 17h e fique até o jantar. Os canais coloridos com barcos são o cartão-postal da cidade.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do hotel</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar</div>
+          </div>
+        </div>
+      </div>
+      <div class="food-block">
+        <div class="food-block-title">🍽 Jantar em Nyhavn</div>
+        <div class="food-item"><strong>Nyhavn 17</strong> — Peixe local, vista para o canal. Turístico mas muito bom.</div>
+        <div class="food-item"><strong>Hija de Sanchez</strong> — Taco bar dinamarquês criativo, a 10 min a pé. Mais barato e original.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-04jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 6</div>
+      <div class="day-title">Norte da Cidade + Voo Oslo</div>
+      <div class="day-subtitle">04 de junho · Quinta-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento ⚠ Dia com voo às 17h</div>
+        <p><strong>Roteiro em arco norte:</strong> Hotel → Sereia (25 min de bike/ônibus) → Kastellet (2 min a pé) → Igreja de Mármore (8 min a pé) → Amalienborg (5 min a pé) → Rosenborg (15 min a pé) → Torvehallerne para almoço (10 min a pé). <strong>Sair do hotel às 14h com malas.</strong> Uber ao aeroporto ~30 min (DKK 250–300).</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Checkout — malas na recepção</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">09h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Den Lille Havfrue — A Sereia</div>
+            <div class="tl-note">Estátua icônica. Melhor cedo antes do movimento.</div>
+            <div class="transport-strip"><span class="transport-badge tb-bus">🚌 Bus 26 → Langelinie (20 min)</span><span class="transport-badge tb-uber">🚗 Uber ~DKK 80 (rápido)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Kastellet — Foto com o moinho</div>
+            <div class="tl-note">Fortaleza em estrela com moinho de vento. Uma das mais fotogênicas de CPH.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 2 min da Sereia</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Igreja de Mármore (Frederik's Kirke)</div>
+            <div class="tl-note">Cúpula inspirada no Pantheon de Roma. Aberta ao público.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 8 min do Kastellet</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Palácio de Amalienborg</div>
+            <div class="tl-img-placeholder">📍 Palácio de Amalienborg · Copenhague</div>
+            <div class="tl-note">Residência da família real. A troca da guarda é às 12h em ponto — chegar antes para boa posição.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min da Igreja</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Troca da guarda — Amalienborg</div>
+            <div class="tl-note">Cerimônia às 12h em ponto. Duração ~20 min.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jardins de Rosenborg + Praça Kultorvet</div>
+            <div class="tl-note">Jardim gratuito e belíssimo. Castelo ~€22 se quiser entrar.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 15 min de Amalienborg</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço — Torvehallerne</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Torvehallerne_Copenhagen.jpg/1280px-Torvehallerne_Copenhagen.jpg" alt="Torvehallerne Copenhague" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Mercado coberto premium. Peça o smørrebrød (sanduíche aberto dinamarquês com salmão ou arenque). O melhor almoço rápido de CPH.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min de Rosenborg</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Pegar malas no hotel + Uber ao aeroporto CPH</div>
+            <div class="tl-note">Aeroporto de Copenhagen fica a 15 min de Uber. Chegue 1h30 antes do voo.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro M2 → CPH Airport (15 min, mais barato)</span><span class="transport-badge tb-uber">🚗 Uber se com bagagem grande</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Voo Copenhagen → Oslo</div>
+            <div class="tl-note">Duração ~1h15.</div>
+            <div class="transport-strip"><span class="transport-badge tb-train">✈️ Voo doméstico CPH–OSL</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Check-in Radisson Blu Plaza Hotel Oslo</div>
+            <div class="tl-note">R$ 1.547. Cobrança no dia 03/06.</div>
+            <div class="transport-strip"><span class="transport-badge tb-train">🚄 Flytoget (Airport Express) → Oslo S (20 min, NOK 230)</span></div>
+            <div class="tag tag-tip">✓ Flytoget: mais rápido e confiável que Uber em Oslo</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Ópera House + Karl Johans gate</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Operahuset_Oslo.jpg/1280px-Operahuset_Oslo.jpg" alt="Oslo Opera House" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">A Ópera fica a 5 min do hotel — pode subir no telhado inclinado (entrada gratuita). Karl Johans é a rua pedestre principal.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do hotel</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">21h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — Aker Brygge</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Aker_Brygge_Oslo.jpg/1280px-Aker_Brygge_Oslo.jpg" alt="Aker Brygge Oslo" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Doca revitalizada a 15 min a pé. Frutos do mar excelentes, vista para o fiorde de Oslo.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 15 min do hotel</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FIORDES ══════════════════════════════ -->
+<section class="city-section" id="fiordes">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Oslo_collage.jpg/1280px-Oslo_collage.jpg" alt="Oslo" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--no)"></div>
+    <div class="city-flag-large">🇳🇴</div>
+    <div class="city-header-text">
+      <div class="city-label">Noruega · 05 — 06 de junho</div>
+      <div class="city-name-large">Flam &amp; Fiordes</div>
+      <div class="city-dates">
+        <span>2 dias</span>
+        <span>·</span>
+        <span>Reserva trem: 4AAN6P · Fjordtours</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-05jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 7</div>
+      <div class="day-title">Oslo → Flam · Caiaque nos Fiordes</div>
+      <div class="day-subtitle">05 de junho · Sexta-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Rota Oslo → Flam</div>
+        <p>Trem de Oslo S → Myrdal (5h15, reserva 4AAN6P). Em Myrdal, troca para o <strong>Flåmsbana</strong> — um dos trens mais bonitos do mundo, 20 km descendo de 867 m até o fiorde. Chegada em Flam ~12h. Hotel fica a 3 min a pé da estação.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">06h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Saída do hotel → Oslo S</div>
+            <div class="tl-note">Oslo S (Estação Central) fica a 5 min a pé do Radisson Blu Plaza.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do hotel à Oslo S</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">06h25</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Trem Oslo S → Myrdal + Flåmsbana → Flam</div>
+            <img class="tl-img" src="https://www.raildiscoveries.com/wp-content/uploads/2019/07/flam-railway-norway-1.jpg" alt="Flåmsbana Norway" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Reserva: 4AAN6P. O Flåmsbana desce com cachoeiras laterais e neve nas montanhas — a janela direita tem as melhores vistas.</div>
+            <div class="transport-strip"><span class="transport-badge tb-train">🚄 Trem ~5h15 + Flåmsbana 20 min</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Chegada Flam — Deixar malas no hotel</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 3 min da estação ao hotel</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço — Ægir Bryggeri</div>
+            <div class="tl-note">Cervejaria viking à beira do Aurlandsfjord. Ambiente único, cerveja artesanal, cardápio de carne e peixe.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Caiaque nos Fiordes</div>
+            <img class="tl-img" src="https://twofortheworld.com/wp-content/uploads/2019/08/Kayaking-Naeroyfjord-Norway-1.jpg" alt="Caiaque Nærøyfjord" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Reservar antecipado: Flam Kayaking ou NordicVentures. ~3h de paddling. O Nærøyfjord é Patrimônio UNESCO.</div>
+            <div class="tag tag-alert">⚠ Reservar antecipado — temporada de verão lota</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — Gudvangen Viking Alen</div>
+            <div class="tl-note">Experiência viking autêntica. Verificar transfer Flam → Gudvangen (~30 min de ônibus ou barco).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-06jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 8</div>
+      <div class="day-title">Mirante + Navegação → Bergen</div>
+      <div class="day-subtitle">06 de junho · Sábado</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Rota Flam → Bergen</div>
+        <p><strong>Mirante Stegastein:</strong> Ônibus local de Flam (~15 min). <strong>Navegação:</strong> Confirmar com o operador se a rota vai direto até Bergen (4h) ou até Gudvangen (2h). Se for até Gudvangen, há ônibus para Bergen (2h). A chegada em Bergen pode ser às 19–22h dependendo da rota.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Checkout + malas no hotel</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Mirante Stegastein</div>
+            <img class="tl-img" src="https://www.fjords.com/wp-content/uploads/2020/05/stegastein-viewpoint-aurlandsfjord.jpg" alt="Stegastein Viewpoint" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Plataforma a 650m de altitude sobre o Aurlandsfjord. Vista absolutamente surreal. Uma das melhores fotos da viagem.</div>
+            <div class="transport-strip"><span class="transport-badge tb-bus">🚌 Ônibus local Flam → Stegastein (~15 min)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Retorno a Flam + almoço leve</div>
+            <div class="tl-note">Mercearia local ou café no porto.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Navegação pelos Fiordes → Bergen</div>
+            <img class="tl-img" src="https://www.fjords.com/wp-content/uploads/2020/04/naeroyfjord-norway-fjord-cruise.jpg" alt="Nærøyfjord cruise" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Rota pelo Nærøyfjord — o mais estreito do mundo (250m de largura), paredes de 1.700m de altura. Espetacular.</div>
+            <div class="transport-strip"><span class="transport-badge tb-boat">⛵ Barco Flam → Bergen (~4–5h)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">22h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Check-in Scandic Torget Bergen</div>
+            <div class="tl-note">R$ 4.013. Central — a 3 min do Bryggen.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 Porto → hotel ~5 min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ BERGEN ══════════════════════════════ -->
+<section class="city-section" id="bergen">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/BergenNorway.jpg/1280px-BergenNorway.jpg" alt="Bergen" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--no)"></div>
+    <div class="city-flag-large">🇳🇴</div>
+    <div class="city-header-text">
+      <div class="city-label">Noruega · 06 — 09 de junho</div>
+      <div class="city-name-large">Bergen</div>
+      <div class="city-dates">
+        <span>3 noites</span>
+        <span>·</span>
+        <span>Scandic Torget — R$ 4.013</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-07jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 9</div>
+      <div class="day-title">Bryggen + Mercado do Peixe + Fortaleza</div>
+      <div class="day-subtitle">07 de junho · Domingo</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento</div>
+        <p>Dia totalmente a pé — Bergen é pequena e plana no centro. <strong>Hotel → Bryggen (3 min) → Mercado do Peixe (3 min, na doca) → Bergenhus Fortress (5 min) → Torgallmenningen (5 min) → Byparken (3 min) → Lille Lungegårdsvannet (10 min).</strong> Circuito de ~2 km, sem necessidade de transporte.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">10h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Acordar sem pressa (chegou tarde)</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Visitors Center + Bryggen</div>
+            <div class="tl-img-placeholder">📍 Bryggen · Bergen</div>
+            <div class="tl-note">Casas hanseáticas coloridas do séc. XIV — Patrimônio UNESCO. Melhor pela manhã antes das 12h. Caminhe pelos becos entre as casas.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 3 min do hotel</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço — Fisketorget (Mercado do Peixe)</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bergen_fish_market.jpg/1280px-Bergen_fish_market.jpg" alt="Bergen Fish Market" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Sopa de peixe cremosa servida no pão hollowed-out. Comer na banca, não no restaurante ao redor. Provar também o salmão defumado.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 3 min do Bryggen</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Bergenhus Fortress</div>
+            <div class="tl-note">Castelo do séc. XII. Jardins gratuitos. Haakon's Hall é a peça principal.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do Mercado</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Torgallmenningen → Byparken → Lille Lungegårdsvannet</div>
+            <div class="tl-note">Praça principal, parque urbano e o lago com fontes — circuito relaxado no coração de Bergen.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 Circuito a pé ~2 km total</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — Lysverket</div>
+            <div class="tl-note">Melhor restaurante de Bergen. Cozinha nórdica moderna. Reserve com antecedência.</div>
+            <div class="tag tag-alert">⚠ Reservar com antecedência</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-08jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 10</div>
+      <div class="day-title">Bairros Históricos + Monte Fløyen</div>
+      <div class="day-subtitle">08 de junho · Segunda-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento</div>
+        <p><strong>Manhã a pé:</strong> Old Bergen Museum → Øvregaten/Gamle Nostegaten (paralelas ao Bryggen, 10 min a pé) → Knosesmauet (beco, 2 min). <strong>Tarde:</strong> Funicular Fløibanen sai do centro histórico, 5 min a pé do hotel. Recomendo caminhar de volta pelo Fp7 (trilha, 45 min) em vez de pegar o funicular de volta — economiza e a vista descendo é ainda melhor.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">10h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Old Bergen Museum</div>
+            <div class="tl-note">Museu ao ar livre com casas do séc. XVIII–XIX preservadas. Gratuito para caminhar fora.</div>
+            <div class="transport-strip"><span class="transport-badge tb-bus">🚌 Bus 11 → Gamle Bergen (15 min, NOK 40)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Ruas históricas: Øvregaten, Gamle Nostegaten, Sankt Hansstredet</div>
+            <div class="tl-note">As ruas mais fotogênicas de Bergen — casas de madeira coloridas do séc. XVII.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min do Old Bergen de volta ao centro</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Knosesmauet</div>
+            <div class="tl-note">Beco estreito e colorido — uma das fotos mais compartilhadas de Bergen.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 2 min de Øvregaten</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço — Colonialen</div>
+            <div class="tl-note">Café favorito dos locais. Comida caseira escandinava, ambiente descontraído.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Funicular Fløibanen → Monte Fløyen (320m)</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Bergen-floyen-top.jpg/1280px-Bergen-floyen-top.jpg" alt="Monte Fløyen Bergen" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">~€20 ida e volta. Vista de 360° de Bergen e dos fiordes.</div>
+            <div class="transport-strip"><span class="transport-badge tb-funicular">🚠 Fløibanen — 8 min subindo</span></div>
+            <div class="tag tag-tip">✓ Descer a pé pela trilha Fp7 (45 min) — economiza €10 e a vista é ainda melhor</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">St. John's Church</div>
+            <div class="tl-note">No caminho de volta do funicular. Pequena, bonita e histórica.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 No caminho da trilha de descida</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Pôr do sol no Bryggen</div>
+            <div class="tl-img-placeholder">🌅 Pôr do Sol · Bryggen</div>
+            <div class="tl-note">Em junho, pôr do sol em Bergen é às ~22h30. A hora dourada começa às ~20h — o Bryggen fica laranja e é extraordinário.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do funicular</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">21h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — Enhjørningen</div>
+            <div class="tl-note">Restaurante medieval dentro dos armazéns do Bryggen. Especialidade em frutos do mar.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ ESTOCOLMO ══════════════════════════════ -->
+<section class="city-section" id="estocolmo">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Stockholm_-_skyline.jpg/1280px-Stockholm_-_skyline.jpg" alt="Estocolmo" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--se)"></div>
+    <div class="city-flag-large">🇸🇪</div>
+    <div class="city-header-text">
+      <div class="city-label">Suécia · 09 — 12 de junho</div>
+      <div class="city-name-large">Estocolmo</div>
+      <div class="city-dates">
+        <span>3 noites</span>
+        <span>·</span>
+        <span>Scandic Go</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-09jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 11</div>
+      <div class="day-title">Gamla Stan + Södermalm + Vista</div>
+      <div class="day-subtitle">09 de junho · Terça-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Aeroporto → Centro</div>
+        <p><strong>Arlanda Express</strong> (trem direto, 20 min, SEK 320 ≈ €28) é a melhor opção — sem paradas, sem trânsito. <strong>Pendeltåg</strong> (trem regional) leva 40 min mas custa SEK 125 ≈ €11. <strong>Não use Uber de Arlanda</strong> — pode demorar 50–70 min no trânsito e custar mais. <br><br><strong>À tarde:</strong> Hotel (T-Centralen) → Gamla Stan (metro 1 parada ou 15 min a pé) → Riddarholmen (5 min) → balsa ou metrô até Södermalm → Monteliusvägen (15 min a pé subindo).</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">10h50</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Voo Bergen → Estocolmo Arlanda</div>
+            <div class="tl-note">Sair do hotel às 07h30. Aeroporto de Bergen fica a 20 min de ônibus.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Check-in Scandic Go</div>
+            <div class="transport-strip"><span class="transport-badge tb-train">🚄 Arlanda Express → T-Centralen (20 min)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Gamla Stan — Cidade Velha Medieval</div>
+            <div class="tl-img-placeholder">📍 Gamla Stan · Estocolmo</div>
+            <div class="tl-note">Ruas de paralelepípedo do séc. XIII. Stortorget (praça central) com casas coloridas é o coração.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Tunnelbana → Gamla Stan (1 parada)</span><span class="transport-badge tb-walk">🚶 15 min a pé alternativa</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Palácio Real de Estocolmo — Exterior</div>
+            <div class="tl-note">Troca da guarda: 12h15 (seg–sáb). Você chega à tarde — só o exterior, que já é belo.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min de Stortorget</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15h45</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Riddarholmen — Vista única de Gamla Stan</div>
+            <div class="tl-note">Ilha adjacente com vista do canal e os edifícios históricos. Uma das fotos mais bonitas de Estocolmo.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do Palácio</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Södermalm — Bairro boêmio</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sodermalm-Stockholm.jpg/1280px-Sodermalm-Stockholm.jpg" alt="Södermalm Estocolmo" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Cruzar a ponte Slussen (ou pegar a balsa) para o bairro mais descolado de Estocolmo.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min de Gamla Stan pela ponte</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Monteliusvägen — Melhor vista de Estocolmo</div>
+            <div class="tl-note">Mirante gratuito, sem fila. Vista de 180° sobre os canais, Gamla Stan e os barcos. Melhor pôr do sol da cidade.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 15 min subindo em Södermalm</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar em Södermalm</div>
+          </div>
+        </div>
+      </div>
+      <div class="food-block">
+        <div class="food-block-title">🍽 Jantar em Södermalm</div>
+        <div class="food-item"><strong>Meatballs for the People</strong> — Almôndegas suecas modernas. Conceito simples, executado perfeitamente. €€</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-10jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 12</div>
+      <div class="day-title">Museu Vasa + Djurgården + Östermalm</div>
+      <div class="day-subtitle">10 de junho · Quarta-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento</div>
+        <p><strong>Djurgården:</strong> Balsa Djurgårdsfärjan do Slussen (~SEK 45, 15 min, belíssima) ou ônibus 69 da T-Centralen (20 min). Vasa + Skansen ficam a 500m um do outro dentro da ilha. <strong>Volta:</strong> Balsa de Djurgårdsbryggan até Nybroplan (centro) em 10 min — a viagem mais bonita da cidade.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">10h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Museu Vasa</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Vasa_Vasamuseet.jpg/1280px-Vasa_Vasamuseet.jpg" alt="Museu Vasa" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Navio de guerra do séc. XVII preservado inteiro — único no mundo. ~2h. Chegue cedo para evitar filas.</div>
+            <div class="transport-strip"><span class="transport-badge tb-boat">⛵ Balsa → Djurgårdsbryggan (15 min)</span><span class="transport-badge tb-walk">🚶 5 min ao Vasa</span></div>
+            <div class="tag tag-alert">⚠ Reservar online — museu mais visitado da Escandinávia</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Skansen — Museu ao ar livre + Zoo nórdico</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Skansen_open_air_museum.jpg/1280px-Skansen_open_air_museum.jpg" alt="Skansen Estocolmo" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Aldeias históricas, alces, renas, ursos. Em junho, aberto até 20h. ~SEK 250 (≈€22).</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min do Vasa</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço no Skansen ou piquenique</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Balsa de volta ao centro</div>
+            <div class="tl-note">Djurgårdsfärjan — 10 minutos de barco com vista da orla. A melhor volta possível.</div>
+            <div class="transport-strip"><span class="transport-badge tb-boat">⛵ Balsa → Nybroplan (10 min)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Kungsträdgården — Jardim central</div>
+            <div class="tl-note">Em junho: flores, apresentações ao vivo, cafés ao ar livre. Ponto de encontro dos locais.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min de Nybroplan</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — Östermalms Saluhall</div>
+            <div class="tl-note">Mercado coberto histórico (1888) com várias barracas de alta gastronomia. Mariscos, ost, salmão. Ambiente único.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Tunnelbana → Östermalmstorg (10 min)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-11jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 13</div>
+      <div class="day-title">Arquipélago de Vaxholm + Vasastan</div>
+      <div class="day-subtitle">11 de junho · Quinta-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Lógica de deslocamento</div>
+        <p><strong>Arquipélago:</strong> Balsa Waxholmsbolaget sai do Strandvägen (15 min a pé do hotel) às ~09h30. Chegada em Vaxholm ~1h15. Almoço lá, retorno ~13h30. <strong>À tarde em Vasastan:</strong> Metro T-Centralen → Odenplan (10 min). Biblioteca + café na Odenplan, tudo a pé. <strong>Jantar:</strong> Volta ao Djurgården de Uber (~15 min).</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Strandvägen → Balsa para Vaxholm</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 15 min do hotel ao Strandvägen</span><span class="transport-badge tb-boat">⛵ Balsa Waxholmsbolaget → Vaxholm (~1h15)</span></div>
+            <div class="tag tag-tip">✓ SEK ~150 ida e volta. Cenário de ilhas e veleiros é extraordinário em junho</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">11h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Vaxholm — Vila + Fortaleza do séc. XVI</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vaxholm_archipelago_sweden.jpg/1280px-Vaxholm_archipelago_sweden.jpg" alt="Vaxholm arquipélago" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Vila de pescadores genuína com casas vermelhas de madeira. Sem turistas em massa. Caminhe pelo centro e veja a fortaleza de longe.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Almoço em Vaxholm — Hamnkrogen</div>
+            <div class="tl-note">Frutos do mar à beira do mar. Salmão, camarão, peixe do dia. Vista para os barcos.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Balsa de volta a Estocolmo</div>
+            <div class="transport-strip"><span class="transport-badge tb-boat">⛵ Retorno ~1h15</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Vasastan — Stadsbiblioteket (Biblioteca Municipal)</div>
+            <img class="tl-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Stockholm_Public_Library_-_rotunda.jpg/800px-Stockholm_Public_Library_-_rotunda.jpg" alt="Biblioteca de Estocolmo" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-note">Interior art deco dos anos 1920 — rotunda central com prateleiras do chão ao teto. Gratuito. Uma das mais bonitas da Europa.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Tunnelbana → Odenplan (10 min)</span><span class="transport-badge tb-walk">🚶 5 min a pé</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Café da tarde — Vete-Katten</div>
+            <div class="tl-note">Confeitaria sueca de 1928. Os melhores kanelbullar (pão de canela) de Estocolmo. Ambiente art nouveau.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min da biblioteca (centro)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Compras + passeio livre</div>
+            <div class="tl-note">Drottninggatan (rua de compras) ou Götgatan em Södermalm para lojas independentes.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar final — Oaxen Slip</div>
+            <div class="tl-note">Cozinha nórdica sustentável no Djurgården. Melhor custo-benefício gourmet de Estocolmo. Reserve com antecedência.</div>
+            <div class="transport-strip"><span class="transport-badge tb-uber">🚗 Uber → Djurgården (~15 min)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ MADRID ══════════════════════════════ -->
+<section class="city-section" id="madrid">
+  <img class="city-hero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Madrid_Montage.jpg/1280px-Madrid_Montage.jpg" alt="Madrid" loading="lazy" onerror="this.style.display='none'"><div class="city-header">
+    <div class="city-color-bar" style="background: var(--es)"></div>
+    <div class="city-flag-large">🇪🇸</div>
+    <div class="city-header-text">
+      <div class="city-label">Espanha · 12 — 13 de junho</div>
+      <div class="city-name-large">Madrid</div>
+      <div class="city-dates">
+        <span>1 noite</span>
+        <span>·</span>
+        <span>Innside by Melia — R$ 1.039</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-12jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 14</div>
+      <div class="day-title">Chegada + Noite em Madrid</div>
+      <div class="day-subtitle">12 de junho · Sexta-feira</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="logistics-block">
+        <div class="logistics-block-title">🗺 Logística aeroporto → hotel → noite</div>
+        <p><strong>Aeroporto → Hotel:</strong> Metro linha 8 (Aeropuerto T1-T2-T3) → Nuevos Ministerios → troca linha 6 → Alvarado (25 min total, €5 com suplemento aeroporto). Uber ~€25–30, 20–30 min sem trânsito. <strong>Noite:</strong> Hotel fica no bairro Almagro. Uber ~10 min ao Barrio de las Letras. Casa Lucio fica na Cava Baja — a melhor rua de tapas de Madrid.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">14h50</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Voo Estocolmo → Madrid</div>
+            <div class="tl-note">Sair do hotel às 12h. Scandic Go fica próximo à T-Centralen.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Chegada MAD + Check-in Innside by Melia</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro linha 8 → centro (25 min, mais barato)</span><span class="transport-badge tb-uber">🚗 Uber ~€25–30 (mais cômodo com malas)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">19h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Descanso + banho</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Barrio de las Letras — Aperitivo</div>
+            <div class="tl-img-placeholder">📍 Barrio de las Letras · Madrid</div>
+            <div class="tl-note">Bairro literário histórico, ruas de paralelepípedo com versos gravados. Atmosfera incrível à noite.</div>
+            <div class="transport-strip"><span class="transport-badge tb-uber">🚗 Uber ~€8 do hotel (10 min)</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Aperitivo — La Dolores</div>
+            <div class="tl-note">Bar de 1920, cerveja gelada, azeitonas, berberechos. Favorito dos madrilenhos.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 5 min no bairro</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">21h30</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Jantar — Casa Lucio</div>
+            <div class="tl-note">Huevos rotos (ovos mexidos com batatas) — o melhor de Madrid. Frequentado pela família real. Reservar com antecedência.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min a pé no bairro (Cava Baja 35)</span></div>
+            <div class="tag tag-alert">⚠ Reservar antes da viagem</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">23h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Puerta del Sol + Plaza Mayor</div>
+            <div class="tl-note">À noite é o melhor momento — iluminadas, movimentadas, sem calor. Passear 20 min.</div>
+            <div class="transport-strip"><span class="transport-badge tb-walk">🚶 10 min do Casa Lucio</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">00h00</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Volta ao hotel</div>
+            <div class="transport-strip"><span class="transport-badge tb-uber">🚗 Uber ~€8 para o hotel</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card" id="day-13jun">
+    <div class="day-header" onclick="toggle(this)">
+      <div class="day-number">Dia 15</div>
+      <div class="day-title">Volta ao Brasil</div>
+      <div class="day-subtitle">13 de junho · Sábado</div>
+      <div class="day-chevron">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">Manhã</div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Café da manhã no hotel + Checkout</div>
+            <div class="tl-note">Confirmar horário do voo de volta ao Brasil.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time"></div>
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-activity">Transfer ao Aeroporto Barajas (MAD)</div>
+            <div class="tl-note">Metro linha 8 (Nuevos Ministerios → Aeroporto, 20 min) ou Uber ~€25. Chegar 2h30 antes para voo internacional.</div>
+            <div class="transport-strip"><span class="transport-badge tb-metro">🚇 Metro → Barajas (20 min)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ RESERVAS ══════════════════════════════ -->
+<section class="city-section alerts-section" id="reservas" style="opacity: 1; animation: none;">
+  <div class="alerts-title">📋 O que reservar com antecedência</div>
+  <div class="alerts-sub">Garanta esses itens antes de viajar</div>
+  <div class="alerts-grid">
+    <div class="alert-card">
+      <div class="alert-card-city">🇳🇱 Amsterdam</div>
+      <div class="alert-card-item">Casa de Anne Frank</div>
+      <span class="alert-urgency urg-alta">⚠ Urgente — 2 meses antes</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇳🇱 Amsterdam</div>
+      <div class="alert-card-item">Heineken Experience</div>
+      <span class="alert-urgency urg-media">Média — 2 semanas antes</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇳🇱 Amsterdam</div>
+      <div class="alert-card-item">Passeio de barco pelos canais</div>
+      <span class="alert-urgency urg-media">Média — 1 semana antes</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇳🇴 Flam</div>
+      <div class="alert-card-item">Caiaque nos fiordes</div>
+      <span class="alert-urgency urg-alta">⚠ Alta — lota no verão</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇳🇴 Bergen</div>
+      <div class="alert-card-item">Lysverket (jantar)</div>
+      <span class="alert-urgency urg-alta">⚠ Alta — restaurante concorrido</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇸🇪 Estocolmo</div>
+      <div class="alert-card-item">Museu Vasa</div>
+      <span class="alert-urgency urg-alta">⚠ Alta — reservar online</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇸🇪 Estocolmo</div>
+      <div class="alert-card-item">Oaxen Slip (jantar)</div>
+      <span class="alert-urgency urg-media">Média — popular</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇪🇸 Madrid</div>
+      <div class="alert-card-item">Casa Lucio (jantar)</div>
+      <span class="alert-urgency urg-media">Média — reservar antes</span>
+    </div>
+    <div class="alert-card">
+      <div class="alert-card-city">🇩🇰 Copenhague</div>
+      <div class="alert-card-item">Troca da guarda 12h — Amalienborg</div>
+      <span class="alert-urgency urg-baixa">Baixa — só chegar antes das 12h</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">Escandinávia 2026</div>
+  <div>Roteiro gerado com carinho · 15 dias · 5 países · muitas memórias por vir</div>
+</footer>
+
+<script>
+  function toggle(header) {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  }
+
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Intersection Observer para animações e nav ativa
+  const sections = document.querySelectorAll('.city-section');
+  const navBtns = document.querySelectorAll('.nav-btn');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        const id = entry.target.id;
+        navBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(id));
+        });
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '-80px 0px 0px 0px' });
+
+  sections.forEach(s => {
+    s.style.animationPlayState = 'paused';
+    obs.observe(s);
+  });
+
+  // Abrir o primeiro card de cada cidade automaticamente
+  document.querySelectorAll('.day-card:first-of-type').forEach(c => c.classList.add('open'));
+</script>
+</body>
+</html>
