@@ -2,7 +2,7 @@
 
 Roteiro completo da viagem pela Escandinávia e Benelux, maio–junho de 2026.
 
-**🔗 Ver roteiro online:** [https://SEU-USUARIO.github.io/escandinávia-2026](https://SEU-USUARIO.github.io/escandinávia-2026)
+**🔗 Ver roteiro online:** [https://ig-costa.github.io/escandinávia-2026](https://ig-costa.github.io/escandinávia-2026)
 
 ---
 
